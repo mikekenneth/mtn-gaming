@@ -434,7 +434,8 @@ let remainingPathColor = COLOR_CODES.info.color;
 var timerId;
 var counter;
 
-var tickAudio = new Audio('https://onlineclock.net/audio/options/marching-robots.mp3');
+var tickAudio = new Audio('https://r3---sn-aigzrn7e.googlevideo.com/videoplayback?expire=1591371982&ei=bhTaXp3nI4i01gKxlarIDQ&ip=89.33.8.42&id=o-ABuubkizWJNvW0R7fokJeJ4Lvmnwoxn12HCh7ey3eNkB&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=141921&ratebypass=yes&dur=8.173&lmt=1393171186006842&fvip=3&c=WEB&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIfMaPoZfHJ36XICvAlWPvEgHcsmpFD6tAztee-UPn5cQIhAIiqKCPHmwEMyfML7jH3hDDrBI084yJ7OXTxpJqMPipt&video_id=Ko89hiGLUS8&title=24+Time+Effect&rm=sn-pouxga5o-vu2s7d,sn-c0qlk7s&req_id=3e61009d4c6a3ee&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=GJ&mip=41.79.216.41&mm=29&mn=sn-aigzrn7e&ms=rdu&mt=1591350456&mv=m&mvi=2&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhALQWrelbCfP3RGV73iKL6Z6nGiEicA2Sk75oJPCoRJeKAiA28nzfQZObc5miGNNkOhPQDONdHbLL7bnCyKYewsv2KA%3D%3D');
+let applauseAudio = new Audio('https://onlineclock.net/audio/options/applause.mp3');
 
 // Compteur pour le message welcome
 function diminuerCompteur() {
@@ -485,8 +486,11 @@ function formatTime(time) {
 function setRemainingPathColor(timeLeft) {
     const { alert, warning, info } = COLOR_CODES;
     if (timeLeft <= 20) {
-            document.getElementById("base-timer-path-remaining").classList.add(info.color);
-            tickAudio.play();
+        tickAudio.play();
+        document.getElementById("base-timer-path-remaining").classList.add(info.color);
+        setTimeout(function(){
+            tickAudio.pause();
+        }, 20000);
     }
     else if (timeLeft <= alert.threshold) {
         document
@@ -495,6 +499,7 @@ function setRemainingPathColor(timeLeft) {
         document
             .getElementById("base-timer-path-remaining")
             .classList.add(alert.color);
+           
     } else if (timeLeft <= warning.threshold) {
         document
             .getElementById("base-timer-path-remaining")
@@ -502,7 +507,7 @@ function setRemainingPathColor(timeLeft) {
         document
             .getElementById("base-timer-path-remaining")
             .classList.add(warning.color);
-            tickAudio.play();
+            //tickAudio.pause();
     } 
 }
 
@@ -539,6 +544,7 @@ function startTimer() {
         setRemainingPathColor(timeLeft);
 
         if (timeLeft === 0) {
+            tickAudio.pause();
             pause();
             timeOverMessage.style.display = "block";
             buttonReponse.style.backgroundColor = "#0d47a1";
@@ -608,6 +614,7 @@ var app = {
     load: function () {
         timeOverMessage.style.display = "none";
         if (this.index <= 20) {
+            //tickAudio.play();
             quizBox.innerHTML = "<h5>Question à " + questionList[this.index].nombreDePoint + " Points.</h5>" +
                 questionList[this.index].question;
             
@@ -619,6 +626,7 @@ var app = {
             start();
         }
         else if (this.index === 21){
+            tickAudio.pause();
             quizBox.innerHTML = "Level 1 terminé......!!!"
             op1.style.display = "none";
             op2.style.display = "none";
@@ -629,6 +637,7 @@ var app = {
             buttonReponse.style.display = "none";
         }
         else if (this.index > 21 && this.index <=40) {
+            tickAudio.play();
             quizBox.innerHTML = "<h5>Question à " + questionList[this.index].nombreDePoint + " Points.</h5>" +
                 questionList[this.index].question;
             op1.innerHTML = questionList[this.index].choix[0];
@@ -642,6 +651,7 @@ var app = {
             start();
         }
         else {
+            tickAudio.pause();
             quizBox.innerHTML = "Jeu terminé......!!!<br>Veuillez fermer cet onglet pour quitter le jeu !"
             op1.style.display = "none";
             op2.style.display = "none";
@@ -657,6 +667,8 @@ var app = {
         }
     },
     next: function () {
+        applauseAudio.pause();
+        tickAudio.play();
         this.index++;
         reset();
         timeOverMessage.style.display = "none";
@@ -672,12 +684,15 @@ var app = {
     },
     checkAnswer: function (element) {
         if (element.innerHTML === questionList[this.index].reponse.toString()) {
+            tickAudio.pause();
+            applauseAudio.play();
             this.score += questionList[this.index].nombreDePoint;
             element.className = "correct";
             element.innerHTML = "Bonne réponse !";
             this.scoreCard();
         }
         else {
+            tickAudio.pause();
             element.className = "wrong";
             element.innerHTML = "Mauvaise réponse !";
             buttonReponse.style.backgroundColor = "#0d47a1";
@@ -757,12 +772,8 @@ function displayAnswer() {
     answerText.style.fontSize = "20px";
 }
 
+/*
 function closePage() {
     close();
-}
-
-/*
-function playAgain() {
-    app.load();
 }
 */
