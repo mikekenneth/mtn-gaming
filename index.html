@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTN IT Online Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <img src="./images/icon.png" alt="MTN Bénin">
+
+    <h1>MTN TECHNOLOGY ONLINE GAME</h1>
+
+    <div id="main_container">
+
+        <div class="quiz_container">
+
+            <div class="question" id="questionBox">
+
+            </div>
+
+            <div class="options">
+                <ul id="ul">
+                    <li id="op1" onclick="choose(this)"></li>
+                    <li id="op2" onclick="choose(this)"></li>
+                    <li id="op3" onclick="choose(this)"></li>
+                    <li id="op4" onclick="choose(this)"></li>
+                </ul>
+            </div>
+            <div class="score">
+                <div class="next">
+                    <button type="button" onclick="suivant()" id="button">Suivant</button>
+                </div>
+                <div class="button_reponse">
+                    <button type="button" onclick="displayAnswer()" id="buttonReponse">Réponse</button>
+                </div>
+                <div class="score-card" id="scoreBox">
+                    Score : <span id="scoreCard">0</span>
+                </div>
+            </div>
+        </div>
+        <aside id="aside">
+            <div id="chronoApp"></div>
+            <div id="timeOverMessage">Terminé !</div>
+            <div id="answerBox">
+                <span class="labelAnswer">La bonne réponse était:</span>
+                <span id="answerText"></span>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/ajax.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
