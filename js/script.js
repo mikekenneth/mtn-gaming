@@ -541,8 +541,8 @@ function startTimer() {
         if (timeLeft === 0) {
             pause();
             timeOverMessage.style.display = "block";
-            buttonReponse.style.backgroundColor = "#ff6f00";
-            buttonReponse.style.boxShadow = "#ff6f00";
+            buttonReponse.style.backgroundColor = "#0d47a1";
+            buttonReponse.style.boxShadow = "0px 3px 0px #0d47a1";
             buttonReponse.style.color = "white";
             buttonReponse.disabled = false;
             app.notClickAble();
@@ -680,8 +680,8 @@ var app = {
         else {
             element.className = "wrong";
             element.innerHTML = "Mauvaise réponse !";
-            buttonReponse.style.backgroundColor = "#ff6f00";
-            buttonReponse.style.boxShadow = "#ff6f00";
+            buttonReponse.style.backgroundColor = "#0d47a1";
+            buttonReponse.style.boxShadow = "0px 3px 0px #0d47a1";
             buttonReponse.style.color = "white";
             buttonReponse.disabled = false;
             //answerBox.style.display = "block";
