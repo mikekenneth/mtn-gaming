@@ -434,7 +434,7 @@ let remainingPathColor = COLOR_CODES.info.color;
 var timerId;
 var counter;
 
-var tickAudio = new Audio('https://r3---sn-aigzrn7e.googlevideo.com/videoplayback?expire=1591371982&ei=bhTaXp3nI4i01gKxlarIDQ&ip=89.33.8.42&id=o-ABuubkizWJNvW0R7fokJeJ4Lvmnwoxn12HCh7ey3eNkB&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=141921&ratebypass=yes&dur=8.173&lmt=1393171186006842&fvip=3&c=WEB&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIfMaPoZfHJ36XICvAlWPvEgHcsmpFD6tAztee-UPn5cQIhAIiqKCPHmwEMyfML7jH3hDDrBI084yJ7OXTxpJqMPipt&video_id=Ko89hiGLUS8&title=24+Time+Effect&rm=sn-pouxga5o-vu2s7d,sn-c0qlk7s&req_id=3e61009d4c6a3ee&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=GJ&mip=41.79.216.41&mm=29&mn=sn-aigzrn7e&ms=rdu&mt=1591350456&mv=m&mvi=2&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhALQWrelbCfP3RGV73iKL6Z6nGiEicA2Sk75oJPCoRJeKAiA28nzfQZObc5miGNNkOhPQDONdHbLL7bnCyKYewsv2KA%3D%3D');
+var tickAudio = new Audio('https://r5---sn-aigzrn7d.googlevideo.com/videoplayback?expire=1591385620&ei=tEnaXvPqHtS0hgacjLbgDg&ip=23.250.67.129&id=o-ALMGgkunGAveuC6IV4ssgoJtf8-FqNHiSoH1e_nWd3R_&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=318226&ratebypass=yes&dur=20.410&lmt=1579876258810074&fvip=5&c=WEB&txp=1311222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgEE97QT-e3cUZujeRhJZUclARKQO7AqXk0g1KPqFsWSkCIQCXeA9mTZbPWDnlSmb3gJyQXjqtpLlJBv6fidjVRSok3g%3D%3D&video_id=NDv3VuTzZ2M&title=24+heures+chrono+-horloge+digital&rm=sn-ab5e7s76&req_id=29fb6a281926a3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-huon25jxuxa-jvve7e&cms_redirect=yes&mh=11&mip=41.79.216.41&mm=29&mn=sn-aigzrn7d&ms=rdu&mt=1591363962&mv=m&mvi=4&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAKT5kIqVnFQTFHoyvxK7xxfJp58b77D-Y8VZHv2ha1xVAiEA3TT9TlNbIZBkzad4ovqMbh5P_R927Ojkt3DL2Zs52yw%3D');
 let applauseAudio = new Audio('https://onlineclock.net/audio/options/applause.mp3');
 
 // Compteur pour le message welcome
@@ -488,9 +488,9 @@ function setRemainingPathColor(timeLeft) {
     if (timeLeft <= 20) {
         tickAudio.play();
         document.getElementById("base-timer-path-remaining").classList.add(info.color);
-        setTimeout(function(){
-            tickAudio.pause();
-        }, 20000);
+       // setTimeout(function(){
+         //   tickAudio.pause();
+        //}, 20000);
     }
     else if (timeLeft <= alert.threshold) {
         document
