@@ -580,7 +580,7 @@ var app = {
         scoreCard.style.display = "none";
         scoreBox.style.display = "none";
         asideElt.style.display = "none";
-        quizBox.innerHTML = "Bienvenue sur MTN BENIN TECHNOLOGY ONLINE QUIZ, la plateforme de jeu de questionnaire du département IT.<br/>" +
+        quizBox.innerHTML = "Bienvenue sur MTN BENIN TECHNOLOGY ONLINE QUIZ 2020, la plateforme de jeu de questionnaire du département IT.<br/>" +
             "Amusez-vous Bien !";
     },
     goOn: function () {
