@@ -434,7 +434,9 @@ let remainingPathColor = COLOR_CODES.info.color;
 var timerId;
 var counter;
 
-var tickAudio = new Audio('https://r5---sn-aigzrn7d.googlevideo.com/videoplayback?expire=1591385620&ei=tEnaXvPqHtS0hgacjLbgDg&ip=23.250.67.129&id=o-ALMGgkunGAveuC6IV4ssgoJtf8-FqNHiSoH1e_nWd3R_&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=318226&ratebypass=yes&dur=20.410&lmt=1579876258810074&fvip=5&c=WEB&txp=1311222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgEE97QT-e3cUZujeRhJZUclARKQO7AqXk0g1KPqFsWSkCIQCXeA9mTZbPWDnlSmb3gJyQXjqtpLlJBv6fidjVRSok3g%3D%3D&video_id=NDv3VuTzZ2M&title=24+heures+chrono+-horloge+digital&rm=sn-ab5e7s76&req_id=29fb6a281926a3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-huon25jxuxa-jvve7e&cms_redirect=yes&mh=11&mip=41.79.216.41&mm=29&mn=sn-aigzrn7d&ms=rdu&mt=1591363962&mv=m&mvi=4&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAKT5kIqVnFQTFHoyvxK7xxfJp58b77D-Y8VZHv2ha1xVAiEA3TT9TlNbIZBkzad4ovqMbh5P_R927Ojkt3DL2Zs52yw%3D');
+let chronoSound = document.getElementById("chronoSound");
+
+//let tickAudio = new Audio('https://r5---sn-aigzrn7d.googlevideo.com/videoplayback?expire=1591385620&ei=tEnaXvPqHtS0hgacjLbgDg&ip=23.250.67.129&id=o-ALMGgkunGAveuC6IV4ssgoJtf8-FqNHiSoH1e_nWd3R_&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=318226&ratebypass=yes&dur=20.410&lmt=1579876258810074&fvip=5&c=WEB&txp=1311222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgEE97QT-e3cUZujeRhJZUclARKQO7AqXk0g1KPqFsWSkCIQCXeA9mTZbPWDnlSmb3gJyQXjqtpLlJBv6fidjVRSok3g%3D%3D&video_id=NDv3VuTzZ2M&title=24+heures+chrono+-horloge+digital&rm=sn-ab5e7s76&req_id=29fb6a281926a3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-huon25jxuxa-jvve7e&cms_redirect=yes&mh=11&mip=41.79.216.41&mm=29&mn=sn-aigzrn7d&ms=rdu&mt=1591363962&mv=m&mvi=4&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAKT5kIqVnFQTFHoyvxK7xxfJp58b77D-Y8VZHv2ha1xVAiEA3TT9TlNbIZBkzad4ovqMbh5P_R927Ojkt3DL2Zs52yw%3D');
 let applauseAudio = new Audio('https://onlineclock.net/audio/options/applause.mp3');
 
 // Compteur pour le message welcome
@@ -486,7 +488,7 @@ function formatTime(time) {
 function setRemainingPathColor(timeLeft) {
     const { alert, warning, info } = COLOR_CODES;
     if (timeLeft <= 20) {
-        tickAudio.play();
+        chronoSound.play();
         document.getElementById("base-timer-path-remaining").classList.add(info.color);
        // setTimeout(function(){
          //   tickAudio.pause();
@@ -544,7 +546,7 @@ function startTimer() {
         setRemainingPathColor(timeLeft);
 
         if (timeLeft === 0) {
-            tickAudio.pause();
+            chronoSound.pause();
             pause();
             timeOverMessage.style.display = "block";
             buttonReponse.style.backgroundColor = "#0d47a1";
@@ -580,7 +582,7 @@ var app = {
         scoreCard.style.display = "none";
         scoreBox.style.display = "none";
         asideElt.style.display = "none";
-        quizBox.innerHTML = "Bienvenue sur MTN BENIN TECHNOLOGY ONLINE QUIZ 2020, la plateforme de jeu de questionnaire du département IT.<br/>" +
+        quizBox.innerHTML = "Bienvenue sur MTN BENIN TECHNOLOGY ONLINE QUIZ, la plateforme de jeu de questionnaire du département IT.<br/>" +
             "Amusez-vous Bien !";
     },
     goOn: function () {
@@ -626,7 +628,7 @@ var app = {
             start();
         }
         else if (this.index === 21){
-            tickAudio.pause();
+            chronoSound.pause();
             quizBox.innerHTML = "Level 1 terminé......!!!"
             op1.style.display = "none";
             op2.style.display = "none";
@@ -637,7 +639,7 @@ var app = {
             buttonReponse.style.display = "none";
         }
         else if (this.index > 21 && this.index <=40) {
-            tickAudio.play();
+            chronoSound.play();
             quizBox.innerHTML = "<h5>Question à " + questionList[this.index].nombreDePoint + " Points.</h5>" +
                 questionList[this.index].question;
             op1.innerHTML = questionList[this.index].choix[0];
@@ -651,7 +653,7 @@ var app = {
             start();
         }
         else {
-            tickAudio.pause();
+            chronoSound.pause();
             quizBox.innerHTML = "Jeu terminé......!!!<br>Veuillez fermer cet onglet pour quitter le jeu !"
             op1.style.display = "none";
             op2.style.display = "none";
@@ -668,7 +670,7 @@ var app = {
     },
     next: function () {
         applauseAudio.pause();
-        tickAudio.play();
+        chronoSound.play();
         this.index++;
         reset();
         timeOverMessage.style.display = "none";
@@ -684,7 +686,7 @@ var app = {
     },
     checkAnswer: function (element) {
         if (element.innerHTML === questionList[this.index].reponse.toString()) {
-            tickAudio.pause();
+            chronoSound.pause();
             applauseAudio.play();
             this.score += questionList[this.index].nombreDePoint;
             element.className = "correct";
@@ -692,7 +694,7 @@ var app = {
             this.scoreCard();
         }
         else {
-            tickAudio.pause();
+            chronoSound.pause();
             element.className = "wrong";
             element.innerHTML = "Mauvaise réponse !";
             buttonReponse.style.backgroundColor = "#0d47a1";
@@ -771,9 +773,3 @@ function displayAnswer() {
     answerText.style.fontFamily = "Arial, sans-serif";
     answerText.style.fontSize = "20px";
 }
-
-/*
-function closePage() {
-    close();
-}
-*/
