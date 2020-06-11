@@ -1,3 +1,26 @@
+let funBrainGamesQuestionList = [
+    {id: 1, question: "Qui peut se raser 3 fois dans la journée et avoir toujours une barbe le soir?", reponse: "?"},
+    {id: 2, question: "Un homme est entré en ville lundi. Il est resté trois nuits puis est parti lundi. Comment est-il venu?", reponse: "?"},
+    {id: 3, question: "Pourquoi les hommes chinois mangent-ils plus de riz que les hommes japonais?", reponse: "?"},
+    {id: 4, question: "Vous pouvez le trouver dans Mercure, la Terre, Mars, Jupiter, Saturne, mais pas dans Vénus ou Neptune. Qui est-il?", reponse: "?"},
+    {id: 5, question: "En un an, il y a 12 mois. Sept mois ont 31 jours. Combien de mois ont 28 jours?", reponse: "?"},
+    {id: 6, question: "Si un coq se lève de l'est le matin, dans quelle direction pondra-t-il des œufs le soir?", reponse: "?"},
+    {id: 7, question: "Qui est le plus lourd? Un Kilo de plumes ou un Kilo de roches?", reponse: "?"},
+    {id: 8, question: "Qu'est-ce qui est plein de trous mais qui peut encore retenir l'eau?", reponse: "?"},
+    {id: 9, question: "Un avion s'écrase à la frontière des États-Unis et le Canada. Où les survivants sont-ils enterrés?", reponse: "?"},
+    {id: 10, question: "Comment pouvez-vous faire de sept un nombre pair?", reponse: "?"},
+    {id: 11, question: "Quel mot contient TOUTES les 5 voyelles(a, e, I, o, u)?", reponse: "?"},
+    {id: 12, question: "Qu'est-ce qui commence par un «E» et se termine par un «E». Mais contient généralement 1 lettre?", reponse: "?"},
+    {id: 13, question: "Il y a un certain crime qui, s'il est tenté, est punissable, mais s’il est commis, il n’est pas punissable. Quel est le crime?", reponse: "?"},
+    {id: 14, question: "Qu'est-ce qui devient plus humide quand il sèche?", reponse: "?"},
+    {id: 15, question: "Plus il y en a, moins vous en voyez. Qu'est-ce?", reponse: "?"},
+    {id: 16, question: "Deux filles naissent de la même mère, le même jour, en même temps, dans la même année et pourtant elles ne sont pas des jumelles. Comment l'expliquez-vous?", reponse: "?"},
+    {id: 17, question: "Choisir la phrase correcte : «Le jaune de l'œuf est blanc» OU «Le jaune de l'oeuf est blanc»", reponse: "?"},
+    {id: 18, question: "C'est au centre de Gravité et vous pouvez le trouver dans Vénus, mais pas dans Mars. Qu'est-ce que c'est?", reponse: "?"},
+    {id: 19, question: "Un homme marchait sous la pluie sans manteau ou un parapluie. Mais pas un seul cheveu sur sa tête était mouillé. Comment l'expliquez-vous?", reponse: "?"},
+    {id: 20, question: "Qu'est-ce qui voyage plus vite? la CHALEUR ou le FROID?", reponse: "?"}
+];
+
 var questionList = [
     {
         id: 1,
@@ -434,10 +457,35 @@ let remainingPathColor = COLOR_CODES.info.color;
 var timerId;
 var counter;
 
-let chronoSound = document.getElementById("chronoSound");
+const chronoSound = document.getElementById("chronoSound");
+const applauseAudio = new Audio('https://onlineclock.net/audio/options/applause.mp3');
+const wrongAudio = document.getElementById("wrongAnswerSound");
 
-//let tickAudio = new Audio('https://r5---sn-aigzrn7d.googlevideo.com/videoplayback?expire=1591385620&ei=tEnaXvPqHtS0hgacjLbgDg&ip=23.250.67.129&id=o-ALMGgkunGAveuC6IV4ssgoJtf8-FqNHiSoH1e_nWd3R_&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=318226&ratebypass=yes&dur=20.410&lmt=1579876258810074&fvip=5&c=WEB&txp=1311222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgEE97QT-e3cUZujeRhJZUclARKQO7AqXk0g1KPqFsWSkCIQCXeA9mTZbPWDnlSmb3gJyQXjqtpLlJBv6fidjVRSok3g%3D%3D&video_id=NDv3VuTzZ2M&title=24+heures+chrono+-horloge+digital&rm=sn-ab5e7s76&req_id=29fb6a281926a3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-huon25jxuxa-jvve7e&cms_redirect=yes&mh=11&mip=41.79.216.41&mm=29&mn=sn-aigzrn7d&ms=rdu&mt=1591363962&mv=m&mvi=4&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAKT5kIqVnFQTFHoyvxK7xxfJp58b77D-Y8VZHv2ha1xVAiEA3TT9TlNbIZBkzad4ovqMbh5P_R927Ojkt3DL2Zs52yw%3D');
-let applauseAudio = new Audio('https://onlineclock.net/audio/options/applause.mp3');
+let isPlaying = true;
+
+// On video playing toggle values
+chronoSound.onplaying = function() {
+    isPlaying = true;
+};
+
+// On video pause toggle values
+chronoSound.onpause = function() {
+    isPlaying = false;
+};
+
+// Play video function
+function playChronoSound() {      
+    if (chronoSound.paused && !isPlaying) {
+        chronoSound.play();
+    }
+} 
+
+// Pause video function
+function pauseChronoSound() {     
+    if (!chronoSound.paused && isPlaying) {
+        chronoSound.pause();
+    }
+}
 
 // Compteur pour le message welcome
 function diminuerCompteur() {
@@ -546,7 +594,9 @@ function startTimer() {
         setRemainingPathColor(timeLeft);
 
         if (timeLeft === 0) {
-            chronoSound.pause();
+            pauseChronoSound();
+            //chronoSound.pause();
+            //chronoSound.currentTime = 0;
             pause();
             timeOverMessage.style.display = "block";
             buttonReponse.style.backgroundColor = "#0d47a1";
@@ -570,6 +620,80 @@ function reset() {
 
 var saveRandomNumber = "";
 
+var funBrainGames = {
+    play: function () {
+        pauseChronoSound();
+        timeOverMessage.style.display = "none";
+        op1.style.display = "none";
+        op2.style.display = "none";
+        op3.style.display = "none";
+        op4.style.display = "none";
+        scoreBox.style.display = "none";
+        scoreCard.style.display = "none";
+        buttonReponse.style.display = "block";
+        buttonReponse.style.backgroundColor = "#eeeeee";
+        buttonReponse.style.boxShadow = "0px 3px 0px #eeeeee";
+        buttonReponse.style.color = "#9e9e9e";
+        buttonReponse.disabled = true;
+        buttonReponse.setAttribute("onclick", "displayQuestionMark()");
+        btn.style.display = "block";
+        btn.innerHTML = "Suivant";
+        btn.setAttribute("onclick", "funBrainGamesQuestionSuivant()");
+        asideElt.style.display = "flex";
+        answerBox.style.display = "none";
+    },
+    index: 0,
+    indiceQuestion: 1,
+    load: function () {
+        timeOverMessage.style.display = "none";
+        if (this.index <= funBrainGamesQuestionList.length - 1) {
+            playChronoSound();
+            quizBox.innerHTML = "<h5>Question N° " + this.indiceQuestion + "</h5>" + funBrainGamesQuestionList[this.index].question;
+            this.scoreCard();
+            start();
+        } else {
+            pauseChronoSound();
+            //chronoSound.pause();
+            //chronoSound.currentTime = 0;
+            quizBox.innerHTML = "FUN BRAIN GAMES est terminé......!!!<br>"+
+            "Passez aux questions de FUN QUIZ GAMES !";
+            asideElt.style.display = "none";
+            op1.style.display = "block";
+            op1.innerHTML = "FUN QUIZ GAMES";
+            op1.setAttribute("onclick", "jouerCategorie_2()");
+            btn.style.display = "none";
+            //btn.innerHTML = "Veuillez fermer cet onglet pour quitter le jeu";
+            //btn.setAttribute("type", "submit");
+            //btn.setAttribute("onclick", "window.close()");
+            buttonReponse.style.display = "none";
+            // buttonReponse.setAttribute("onclick", "location.reload()");
+        }
+    },
+    next: function () {
+        pauseChronoSound();
+        //chronoSound.pause();
+        //chronoSound.currentTime = 0;
+        this.indiceQuestion += 1;
+        reset();
+        //chronoSound.play();
+        this.index++;
+        timeOverMessage.style.display = "none";
+        buttonReponse.style.backgroundColor = "#eeeeee";
+        buttonReponse.style.boxShadow = "0px 3px 0px #eeeeee";
+        buttonReponse.style.color = "#9e9e9e";
+        buttonReponse.disabled = true;
+        op1.style.display = "none";
+        op2.style.display = "none";
+        op3.style.display = "none";
+        op4.style.display = "none";
+        this.load();
+    },
+    score: 0,
+    scoreCard: function () {
+        scoreCard.innerHTML = this.score+" / 20";
+    }
+}
+
 var app = {
     welcome: function () {
         timeOverMessage.style.display = "none";
@@ -587,16 +711,25 @@ var app = {
     },
     goOn: function () {
         timeOverMessage.style.display = "none";
-        quizBox.innerHTML = "<strong>Les questions valent 1, 2 ou 3 points.</strong><br /><br />" +
-            "Cliquez sur une case pour choisir votre réponse. Vous disposez de <em><strong>20 secondes</strong></em> pour répondre à chacune des questions.";
+        quizBox.innerHTML = "<strong>Débuter une partie.</strong><br /><br />" +
+            "Cliquez sur la catégorie de votre choix pour débuter la partie. Vous disposez de <em><strong>20 secondes</strong></em> pour répondre à chacune des questions.";
         buttonReponse.style.display = "none";
-        btn.innerHTML = "Jouer Level 1";
-        btn.setAttribute("onclick", "cliquerJouer()");
+        op1.style.display = "block";
+        op1.innerHTML = "FUN BRAIN GAMES";
+        op1.setAttribute("onclick", "jouerCategorie_1()");
+        op2.style.display = "block";
+        op2.innerHTML = "FUN QUIZ GAMES";
+        op2.setAttribute("onclick", "jouerCategorie_2()");
+        btn.style.display = "none";
+        //btn.innerHTML = "Jouer Level 1";
+        //btn.setAttribute("onclick", "cliquerJouer()");
     },
     play: function () {
         timeOverMessage.style.display = "none";
         op1.style.display = "block";
+        op1.setAttribute("onclick", "choose(this)");
         op2.style.display = "block";
+        op2.setAttribute("onclick", "choose(this)");
         op3.style.display = "block";
         op4.style.display = "block";
         scoreBox.style.display = "inline";
@@ -606,6 +739,8 @@ var app = {
         buttonReponse.style.boxShadow = "0px 3px 0px #eeeeee";
         buttonReponse.style.color = "#9e9e9e";
         buttonReponse.disabled = true;
+        buttonReponse.setAttribute("onclick", "displayAnswer()");
+        btn.style.display = "block";
         btn.innerHTML = "Suivant";
         btn.setAttribute("onclick", "suivant()");
         asideElt.style.display = "flex";
@@ -616,19 +751,21 @@ var app = {
     load: function () {
         timeOverMessage.style.display = "none";
         if (this.index <= 20) {
-            //tickAudio.play();
+            playChronoSound();
             quizBox.innerHTML = "<h5>Question à " + questionList[this.index].nombreDePoint + " Points.</h5>" +
                 questionList[this.index].question;
             
-            op1.innerHTML = questionList[this.index].choix[0];
-            op2.innerHTML = questionList[this.index].choix[1];
-            op3.innerHTML = questionList[this.index].choix[2];
-            op4.innerHTML = questionList[this.index].choix[3];
+            op1.innerHTML = "<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>A</span>" + questionList[this.index].choix[0];
+            op2.innerHTML = "<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>B</span>" + questionList[this.index].choix[1];
+            op3.innerHTML = "<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>C</span>" + questionList[this.index].choix[2];
+            op4.innerHTML = "<span style='width: 50px; height: 30px; border-radius: 8px; font-size: 24px; float: left; background-color: white; color: black'>D</span>" + questionList[this.index].choix[3];
             this.scoreCard();
             start();
         }
         else if (this.index === 21){
-            chronoSound.pause();
+            pauseChronoSound();
+            //chronoSound.pause();
+            //chronoSound.currentTime = 0;
             quizBox.innerHTML = "Level 1 terminé......!!!"
             op1.style.display = "none";
             op2.style.display = "none";
@@ -639,9 +776,9 @@ var app = {
             buttonReponse.style.display = "none";
         }
         else if (this.index > 21 && this.index <=40) {
-            chronoSound.play();
-            quizBox.innerHTML = "<h5>Question à " + questionList[this.index].nombreDePoint + " Points.</h5>" +
-                questionList[this.index].question;
+            playChronoSound();
+            //chronoSound.play();
+            quizBox.innerHTML = "<h5>Question à " + questionList[this.index].nombreDePoint + " Points.</h5>" + questionList[this.index].question;
             op1.innerHTML = questionList[this.index].choix[0];
             op2.innerHTML = questionList[this.index].choix[1];
             op3.innerHTML = questionList[this.index].choix[2];
@@ -653,7 +790,9 @@ var app = {
             start();
         }
         else {
-            chronoSound.pause();
+            pauseChronoSound();
+            //chronoSound.pause();
+            //chronoSound.currentTime = 0;
             quizBox.innerHTML = "Jeu terminé......!!!<br>Veuillez fermer cet onglet pour quitter le jeu !"
             op1.style.display = "none";
             op2.style.display = "none";
@@ -670,7 +809,8 @@ var app = {
     },
     next: function () {
         applauseAudio.pause();
-        chronoSound.play();
+        wrongAudio.pause();
+        //chronoSound.play();
         this.index++;
         reset();
         timeOverMessage.style.display = "none";
@@ -685,7 +825,9 @@ var app = {
         this.load();
     },
     checkAnswer: function (element) {
-        if (element.innerHTML === questionList[this.index].reponse.toString()) {
+        let textElement = element.textContent;
+        //console.log(textElement.substring(1));
+        if (textElement.substring(1) === questionList[this.index].reponse) {
             chronoSound.pause();
             applauseAudio.play();
             this.score += questionList[this.index].nombreDePoint;
@@ -694,17 +836,16 @@ var app = {
             this.scoreCard();
         }
         else {
-            chronoSound.pause();
+            pauseChronoSound();
+            //chronoSound.pause();
+            //chronoSound.currentTime = 0;
+            wrongAudio.play();
             element.className = "wrong";
             element.innerHTML = "Mauvaise réponse !";
             buttonReponse.style.backgroundColor = "#0d47a1";
             buttonReponse.style.boxShadow = "0px 3px 0px #0d47a1";
             buttonReponse.style.color = "white";
             buttonReponse.disabled = false;
-            //answerBox.style.display = "block";
-            //answerText.innerHTML = quizzes[this.nb_alea].reponse.toString().toUpperCase();
-            //answerText.style.fontFamily = "Arial, sans-serif";
-            //answerText.style.fontSize = "20px";
         }
     },
     notClickAble: function () {
@@ -737,18 +878,25 @@ var intervalId = setInterval(diminuerCompteur, 1000);
 
 setTimeout(() => {
     quizBox.innerHTML = "<strong>Maximum de points gagnants.</strong><br />" +
-        "Vous disposez de 2 niveaux avec 20 questions chacun pour obtenir le maximum de points.";
+        "Vous disposez de 2 deux catégories de jeux; FUN BRAIN GAMES & FUN QUIZ GAMES. FUN BRAIN GAMES dispose de 20 questions "+
+        "tandis que FUN QUIZ GAMES est composée de 2 niveaux à 20 questions chacun.";
     btn.style.display = "block";
     buttonReponse.style.display = "none";
     btn.innerHTML = "Continuer";
     btn.setAttribute("onclick", "cliquerContinuer()");
-}, 3000);
+}, 6000);
 
 function cliquerContinuer() {
     app.goOn();
 }
 
-function cliquerJouer() {
+function jouerCategorie_1() {
+    funBrainGames.play();
+    funBrainGames.load();
+}
+
+function jouerCategorie_2() {
+    console.log("Jouer categorie 2");
     app.play();
     app.load();
 }
@@ -767,9 +915,21 @@ function suivant() {
     console.log(app.increment);
 }
 
+function funBrainGamesQuestionSuivant() {
+    answerBox.style.display = "none";
+    funBrainGames.next();
+}
+
 function displayAnswer() {
     answerBox.style.display = "block";
     answerText.innerHTML = questionList[app.index].reponse.toUpperCase();
     answerText.style.fontFamily = "Arial, sans-serif";
     answerText.style.fontSize = "20px";
+}
+
+function displayQuestionMark() {
+    answerBox.style.display = "block";
+    answerText.innerHTML = funBrainGamesQuestionList[funBrainGames.index].reponse.toUpperCase();
+    answerText.style.fontFamily = "Arial, sans-serif";
+    answerText.style.fontSize = "80px";
 }
