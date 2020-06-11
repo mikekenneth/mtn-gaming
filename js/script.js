@@ -15,7 +15,7 @@ let funBrainGamesQuestionList = [
     {id: 14, question: "Qu'est-ce qui devient plus humide quand il sèche?", reponse: "?"},
     {id: 15, question: "Plus il y en a, moins vous en voyez. Qu'est-ce?", reponse: "?"},
     {id: 16, question: "Deux filles naissent de la même mère, le même jour, en même temps, dans la même année et pourtant elles ne sont pas des jumelles. Comment l'expliquez-vous?", reponse: "?"},
-    {id: 17, question: "Choisir la phrase correcte : «Le jaune de l'œuf est blanc» OU «Le jaune de l'oeuf est blanc»", reponse: "?"},
+    {id: 17, question: "Choisissez la phrase correcte : «the yolk of the egg is white» OU «the yolk of the egg are white»", reponse: "?"},
     {id: 18, question: "C'est au centre de Gravité et vous pouvez le trouver dans Vénus, mais pas dans Mars. Qu'est-ce que c'est?", reponse: "?"},
     {id: 19, question: "Un homme marchait sous la pluie sans manteau ou un parapluie. Mais pas un seul cheveu sur sa tête était mouillé. Comment l'expliquez-vous?", reponse: "?"},
     {id: 20, question: "Qu'est-ce qui voyage plus vite? la CHALEUR ou le FROID?", reponse: "?"}
@@ -448,7 +448,7 @@ const COLOR_CODES = {
         threshold: ALERT_THRESHOLD
     }
 };
-const TIME_LIMIT = 20;
+let TIME_LIMIT = 30;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
@@ -535,7 +535,7 @@ function formatTime(time) {
 
 function setRemainingPathColor(timeLeft) {
     const { alert, warning, info } = COLOR_CODES;
-    if (timeLeft <= 20) {
+    if (timeLeft <= 30) {
         chronoSound.play();
         document.getElementById("base-timer-path-remaining").classList.add(info.color);
        // setTimeout(function(){
@@ -749,6 +749,7 @@ var app = {
     index: 0,
     increment: 0,
     load: function () {
+        TIME_LIMIT = 20;
         timeOverMessage.style.display = "none";
         if (this.index <= 20) {
             playChronoSound();
