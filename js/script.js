@@ -1,24 +1,24 @@
 let funBrainGamesQuestionList = [
-    {id: 1, question: "Qui peut se raser 3 fois dans la journée et avoir toujours une barbe le soir?", reponse: "?"},
-    {id: 2, question: "Un homme est entré en ville lundi. Il est resté trois nuits puis est parti lundi. Comment est-il venu?", reponse: "?"},
-    {id: 3, question: "Pourquoi les hommes chinois mangent-ils plus de riz que les hommes japonais?", reponse: "?"},
-    {id: 4, question: "Vous pouvez le trouver dans Mercure, la Terre, Mars, Jupiter, Saturne, mais pas dans Vénus ou Neptune. Qui est-il?", reponse: "?"},
-    {id: 5, question: "En un an, il y a 12 mois. Sept mois ont 31 jours. Combien de mois ont 28 jours?", reponse: "?"},
-    {id: 6, question: "Si un coq se lève de l'est le matin, dans quelle direction pondra-t-il des œufs le soir?", reponse: "?"},
-    {id: 7, question: "Qui est le plus lourd? Un Kilo de plumes ou un Kilo de roches?", reponse: "?"},
-    {id: 8, question: "Qu'est-ce qui est plein de trous mais qui peut encore retenir l'eau?", reponse: "?"},
-    {id: 9, question: "Un avion s'écrase à la frontière des États-Unis et le Canada. Où les survivants sont-ils enterrés?", reponse: "?"},
-    {id: 10, question: "Comment pouvez-vous faire de sept un nombre pair?", reponse: "?"},
-    {id: 11, question: "Quel mot contient TOUTES les 5 voyelles(a, e, I, o, u)?", reponse: "?"},
-    {id: 12, question: "Qu'est-ce qui commence par un «E» et se termine par un «E». Mais contient généralement 1 lettre?", reponse: "?"},
-    {id: 13, question: "Il y a un certain crime qui, s'il est tenté, est punissable, mais s’il est commis, il n’est pas punissable. Quel est le crime?", reponse: "?"},
-    {id: 14, question: "Qu'est-ce qui devient plus humide quand il sèche?", reponse: "?"},
-    {id: 15, question: "Plus il y en a, moins vous en voyez. Qu'est-ce?", reponse: "?"},
-    {id: 16, question: "Deux filles naissent de la même mère, le même jour, en même temps, dans la même année et pourtant elles ne sont pas des jumelles. Comment l'expliquez-vous?", reponse: "?"},
-    {id: 17, question: "Choisissez la phrase correcte : «the yolk of the egg is white» OU «the yolk of the egg are white»", reponse: "?"},
-    {id: 18, question: "C'est au centre de Gravité et vous pouvez le trouver dans Vénus, mais pas dans Mars. Qu'est-ce que c'est?", reponse: "?"},
-    {id: 19, question: "Un homme marchait sous la pluie sans manteau ou un parapluie. Mais pas un seul cheveu sur sa tête était mouillé. Comment l'expliquez-vous?", reponse: "?"},
-    {id: 20, question: "Qu'est-ce qui voyage plus vite? la CHALEUR ou le FROID?", reponse: "?"}
+    {id: 1, question: "Qui peut se raser 3 fois dans la journée et avoir toujours une barbe le soir?", question_en: "Who can shave 3 times in the day and still have a beard in the evening?", reponse: "?"},
+    {id: 2, question: "Un homme est entré en ville lundi. Il est resté trois nuits puis est parti lundi. Comment est-il venu?", question_en: "A man rode into town on Monday. He stayed for three nights and then left on Monday. How come?", reponse: "?"},
+    {id: 3, question: "Pourquoi les hommes chinois mangent-ils plus de riz que les hommes japonais?", question_en: "Why do Chinese men eat more rice than Japanese men?", reponse: "?"},
+    {id: 4, question: "Vous pouvez le trouver dans Mercure, la Terre, Mars, Jupiter, Saturne, mais pas dans Vénus ou Neptune. Qui est-il?", question_en: "You can find it in Mercury, Earth, Mars, Jupiter, Saturn, but not in Venus or Neptune.", reponse: "?"},
+    {id: 5, question: "En un an, il y a 12 mois. Sept mois ont 31 jours. Combien de mois ont 28 jours?", question_en: "In a year, there are 12 months. Seven months have 31 days. How many months have 28 days?", reponse: "?"},
+    {id: 6, question: "Si un coq se lève de l'est le matin, dans quelle direction pondra-t-il des œufs le soir?", question_en: "If a cock gets up from east in morning then in what direction will it lay eggs in evening?", reponse: "?"},
+    {id: 7, question: "Qui est le plus lourd? Un Kilo de plumes ou un Kilo de roches?", question_en: "Which is heavier? A pound of feathers or a pound of rocks?", reponse: "?"},
+    {id: 8, question: "Qu'est-ce qui est plein de trous mais qui peut encore retenir l'eau?", question_en: "What is full of holes but can still hold water?", reponse: "?"},
+    {id: 9, question: "Un avion s'écrase à la frontière des États-Unis et le Canada. Où les survivants sont-ils enterrés?", question_en: "A plane crashes on the border of the U.S. and Canada. Where do they bury the survivors?", reponse: "?"},
+    {id: 10, question: "Comment pouvez-vous faire de sept un nombre pair?", question_en: "How can u make seven an even number?", reponse: "?"},
+    {id: 11, question: "Quel mot contient TOUTES les 5 voyelles(a, e, I, o, u)?", question_en: "Which word contains ALL the 5 vowels (a, e, I, o, u )?", reponse: "?"},
+    {id: 12, question: "Qu'est-ce qui commence par un «E» et se termine par un «E». Mais contient généralement 1 lettre?", question_en: "What starts with an ‘E’ and ends with an ‘E’. But usually contains 1 letter?", reponse: "?"},
+    {id: 13, question: "Il y a un certain crime qui, s'il est tenté, est punissable, mais s’il est commis, il n’est pas punissable. Quel est le crime?", question_en: "There is a certain crime, which if attempted, is punishable, but if it is committed, it is not punishable. What is the crime ?", reponse: "?"},
+    {id: 14, question: "Qu'est-ce qui devient plus humide quand il sèche?", question_en: "What gets more wet when it dries ?", reponse: "?"},
+    {id: 15, question: "Plus il y en a, moins vous en voyez. Qu'est-ce?", question_en: "The more there is, the less you see.", reponse: "?"},
+    {id: 16, question: "Deux filles naissent de la même mère, le même jour, en même temps, dans la même année et pourtant elles ne sont pas des jumelles. Comment l'expliquez-vous?", question_en: "Two girls are born to the same mother, on the same day, at the same time, in the same year and yet they're not twins. How can this be?", reponse: "?"},
+    {id: 17, question: "Choisissez la phrase correcte : «the yolk of the egg is white» OU «the yolk of the egg are white»", question_en: 'Choose the correct sentence : “the yolk of the egg is white” OR "the yolk of the egg are white"', reponse: "?"},
+    {id: 18, question: "C'est au centre de Gravité et vous pouvez le trouver dans Vénus, mais pas dans Mars. Qu'est-ce que c'est?", question_en: "It’s at the centre of Gravity and you can find it in Venus, but not Mars.. What is it?", reponse: "?"},
+    {id: 19, question: "Un homme marchait sous la pluie sans manteau ou un parapluie. Mais pas un seul cheveu sur sa tête était mouillé. Comment l'expliquez-vous?", question_en: "A man was walking in the rain without a coat or an umbrella. But not a single hair on his head was wet. How can this be?", reponse: "?"},
+    {id: 20, question: "Qu'est-ce qui voyage plus vite? la CHALEUR ou le FROID?", question_en: "What travels faster? HEAT or COLD?", reponse: "?"}
 ];
 
 var questionList = [
@@ -648,7 +648,8 @@ var funBrainGames = {
         timeOverMessage.style.display = "none";
         if (this.index <= funBrainGamesQuestionList.length - 1) {
             playChronoSound();
-            quizBox.innerHTML = "<h5>Question N° " + this.indiceQuestion + "</h5>" + funBrainGamesQuestionList[this.index].question;
+            quizBox.innerHTML = "<h5>Question N° " + this.indiceQuestion + "</h5>" + "<strong>FR -></strong> " + funBrainGamesQuestionList[this.index].question +
+            "<br><br> <strong>EN -></strong> " + funBrainGamesQuestionList[this.index].question_en;
             this.scoreCard();
             start();
         } else {
